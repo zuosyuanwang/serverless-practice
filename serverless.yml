@@ -14,7 +14,7 @@ custom:
 
 provider:
     name: aws
-    runtime: nodejs10.15.3
+    runtime: nodejs8.10
     stage: prod
     region: ap-northeast-1
 
@@ -91,3 +91,7 @@ functions:
                   method: delete
                   cors: true
                   authorizer: aws_iam
+# Create our resources with separate CloudFormation templates
+resources:
+    # API Gateway Errors
+    - ${file(resources/api-gateway-errors.yml)}
